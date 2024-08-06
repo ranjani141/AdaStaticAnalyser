@@ -1,0 +1,34 @@
+Dependencies
+------------
+
+* Install llvm-14-dev
+* Install libclang-14-dev clang-tools-14
+* Install Boost
+* depends on -lz
+
+
+Install
+-------
+* LLVM in release mode, LLVMBMC and Z3 in debug mode
+
+$make semidebug
+
+
+
+*For developer
+-------------
+
+* Changing version of LLVM
+   -- For debug version in the top Makefile
+   -- For release version: modify/CMakeLists.txt
+
+* make VERBOSE=1 to see all the internal commands
+
+* linking multiple .s files in a single .s file
+
+llvm-link -S -o target.s source1.s source2.s .... 
+
+
+Testing
+-------
+./llvmbmc -b examples/litmus/sb.s
